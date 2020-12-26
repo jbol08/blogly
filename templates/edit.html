@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit User {% endblock %}
+
+{% block content %}
+<h1> Edit a User</h1>
+
+<form method="POST">
+    
+    <div class="row g-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name" name='first_name' id="first_name"
+          value="{{ user.first_name }}" aria-label="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" name='last_name' id="last_name"
+          value="{{ user.last_name }}"aria-label="Last name">
+        </div>
+      </div>
+    
+    <label for="basic-url" class="form-label">Image URL</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="image_url" name='image_url' value="{{user.image_url}}" aria-describedby="basic-addon3">
+    </div>
+    <div class="col-auto">
+        <a href="/users" class="btn btn-outline-info">Cancel</a>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    
+    </form>
+    
+    {% endblock %}
