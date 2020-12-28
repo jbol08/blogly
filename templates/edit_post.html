@@ -17,6 +17,18 @@
         <textarea class="form-control" placeholder="content" id="content" name="content" style="height: 200px"> {{post.content}} </textarea>
         <label for="content"></label>
     </div>
+
+    <div class="form-check">
+    {% for tag in tags %}
+        <div>
+            <input type="checkbox" class="form-check-input"  id="tag_{{tag.id}}"
+            value="{{ tag.id }}" aria-label="tags" {% if tag in post.tags %} checked {% endif %} name='tags' >
+            <label class="form-check-label" for="tag_{{ tag.id }}">
+            {{ tag.name }}
+            </label>
+        </div>
+    {% endfor %}        
+    </div>
 <form>
     <button class="btn btn-outline-primary" formaction="/users/{{post.user_id}}" formmethod="GET"> Cancel </button>
     <button class="btn btn-success" type="submit"> Edit </button>     

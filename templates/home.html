@@ -11,5 +11,14 @@
 
 <small>By {{post.user.first_name}} {{post.user.last_name}} on {{post.date}}</small>
 
+{% if post.tags %}
+<p>
+    <b>Tags:</b>
+    {% for tag in post.tags %}
+    <a href="/tags/{{tag.id}}"> <i class="badge badge-primary">{{tag.name}}</i></a>
+    {% endfor %}
+</p>
+{% endif %}
+
 {% endfor %}
 {% endblock %}
